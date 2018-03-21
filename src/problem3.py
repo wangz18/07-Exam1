@@ -100,7 +100,7 @@ def problem3(rect, n, window):
     rect.attach_to(window)
     window.render()
     height = rect.get_height()
-    radius = 0.5 * height
+    radius = 1/2 * height
     if rect.corner_2.x > rect.corner_1.x:
         X = rect.corner_2.x
     else:
