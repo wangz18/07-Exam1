@@ -2,8 +2,8 @@
 Exam 1, problem 2.
 
 Authors: David Mutchler, Dave Fisher, Matt Boutell, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.  March 2018.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Zhiyu Wang.  March 2018.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
@@ -115,10 +115,26 @@ def problem2(line1, line2, thickness, win):
       :type win:        rg.RoseWindow
     """
     # -------------------------------------------------------------------------
-    # TODO: 2. Implement and test this function, TESTING each step as you go.
+    # DONE: 2. Implement and test this function, TESTING each step as you go.
     #          Tests have been written for you (above).
     #   See the IMPORTANT NOTE just above the DEF line above.
     # -------------------------------------------------------------------------
+    line1.attach_to(win)
+    line2.attach_to(win)
+    win.render()
+    dx1 = (line1.end.x-line1.start.x)/2
+    dy1 = (line1.end.y-line1.start.y)/2
+    dx2 = (line2.end.x-line2.start.x)/2
+    dy2 = (line2.end.y-line2.start.y)/2
+    corner1 = rg.Point(line1.start.x+ dx1,line1.start.y+ dy1)
+    corner2 = rg.Point(line2.start.x + dx2, line2.start.y + dy2)
+    rectangle = rg.Rectangle(corner1,corner2)
+    rectangle.outline_thickness = thickness
+    rectangle.outline_color = line1.color
+    rectangle.attach_to(win)
+    win.render()
+
+
 
 
 # -----------------------------------------------------------------------------
